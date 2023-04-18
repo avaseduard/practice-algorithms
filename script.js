@@ -1582,36 +1582,48 @@ var permute = function (nums) {
 }
 
 console.log(permute(nums1))
-*/
 
-// const haystack = 'youarenotsadbutsad'
-// const needle = 'sad'
+const haystack = 'youarenotsadbutsad'
+const needle = 'sad'
 
-// var strStr = function (haystack, needle) {
-//   for (let i = 0; i < needle.length; i++) {
-//     // console.log(needle[i])
-//     for (let j = 0; j < haystack.length; j++) {
-//       // console.log(haystack[j])
-//       if (needle[i] === haystack[j]) {
-//         console.log(needle[i])
-//         return j
-//       }
-//       // else if () {
-//       //   return -1
-//       // }
-//     }
-//   }
-// }
+var strStr = function (haystack, needle) {
+  for (let i = 0; i < needle.length; i++) {
+    // console.log(needle[i])
+    for (let j = 0; j < haystack.length; j++) {
+      // console.log(haystack[j])
+      if (needle[i] === haystack[j]) {
+        console.log(needle[i])
+        return j
+      }
+      // else if () {
+      //   return -1
+      // }
+    }
+  }
+}
 
-// console.log(strStr(haystack, needle))
+console.log(strStr(haystack, needle))
 
 const nums1 = [2, 14, 18, 22, 22]
 const nums2 = [1, 2, 3, 4]
 const nums3 = [1, 1, 1, 3, 3, 4, 3, 2, 4, 2]
 
 var containsDuplicate = function (nums) {
-  const mySet = new Set(nums)
-  return nums.length !== mySet.size ? true : false
+    const mySet = new Set(nums)
+    return nums.length !== mySet.size ? true : false
 }
 
 console.log(containsDuplicate(nums1))
+*/
+
+const s1 = 'anagram'
+const t1 = 'nagaaram'
+
+var isAnagram = function (s, t) {
+  const orderedSString = s.split('').sort().join('')
+  const orderedTString = t.split('').sort().join('')
+
+  return orderedSString === orderedTString
+}
+
+console.log(isAnagram(s1, t1))
