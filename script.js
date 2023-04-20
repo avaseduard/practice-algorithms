@@ -1614,7 +1614,6 @@ var containsDuplicate = function (nums) {
 }
 
 console.log(containsDuplicate(nums1))
-*/
 
 const s1 = 'anagram'
 const t1 = 'nagaaram'
@@ -1627,3 +1626,52 @@ var isAnagram = function (s, t) {
 }
 
 console.log(isAnagram(s1, t1))
+
+const strs1 = ['eat', 'tea', 'tan', 'ate', 'nat', 'bat']
+// Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+
+var groupAnagrams = function (strs) {
+  const obj = {}
+  // for (let i = 0; i < strs.length; i++) {
+  //   const string = strs[i].split('').sort().join('')
+  //   console.log(string)
+  //   if (!obj[string]) {
+  //     obj[string] = [strs[i]]
+  //   } else {
+  //     obj[string].push(strs[i])
+  //   }
+  // }
+  for (const string of strs) {
+    const sorted = string.split('').sort().join('')
+    if (!obj[sorted]) {
+      obj[sorted] = [string]
+    } else {
+      obj[sorted].push(string)
+    }
+  }
+  return Object.values(obj)
+}
+
+console.log(groupAnagrams(strs1))
+*/
+
+const nums1 = [5, 1, 1, 1, 2, 2, 3]
+const k1 = 2
+
+var topKFrequent = function (nums, k) {
+  const freqMap = new Map()
+  const result = []
+
+  for (const num of nums) {
+    freqMap.set(num, freqMap.get(num) + 1 || 1)
+  }
+  for (const [key, value] of freqMap) {
+    result.push([key, value])
+  }
+  result.sort((a, b) => b[1] - a[1])
+  console.log(result)
+  // return result.slice(0, k)
+  console.log(result.slice(0, k).map(n => n[0]))
+}
+
+console.log(topKFrequent(nums1, k1))
